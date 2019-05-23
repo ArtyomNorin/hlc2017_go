@@ -49,7 +49,7 @@ type DataBase struct {
 	Visits             []*Visit
 	EntityBufferPool   sync.Pool
 	TimeDataGeneration time.Time
-	IsTrain bool
+	IsTrain            bool
 }
 
 func (db *DataBase) PrintStats() {
@@ -353,7 +353,7 @@ func (db *DataBase) GetAvgMark(id int, responseBuffer []byte, request *Request) 
 		return emptyAvgResponse
 	}
 
-	entityBuffer = strconv.AppendFloat(entityBuffer, math.Round(float64(sumOfMarks)/float64(countVisits)*100000)/100000, 'e', 6, 32)
+	entityBuffer = strconv.AppendFloat(entityBuffer, math.Round(float64(sumOfMarks)/float64(countVisits)*100000)/100000, 'f', 6, 32)
 	entityBuffer = append(entityBuffer, '}')
 
 	responseBuffer = append(responseBuffer, `HTTP/1.1 200 OK

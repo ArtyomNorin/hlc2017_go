@@ -11,8 +11,8 @@ import (
 func main() {
 	fmt.Println(os.Getpid())
 
-	//database, err := InitDatabase("/tmp/hlc/data", "/tmp/data/options.txt")
-	database, err := InitDatabase("/home/artyomnorin/Projects/hlc2017_go/data/train/data", "/home/artyomnorin/Projects/hlc2017_go/data/train/options.txt")
+	database, err := InitDatabase("/tmp/hlc/data", "/tmp/data/options.txt")
+	//database, err := InitDatabase("/home/artyomnorin/Projects/hlc2017_go/data/full/data", "/home/artyomnorin/Projects/hlc2017_go/data/full/options.txt")
 
 	if err != nil {
 		log.Fatalln(err)
@@ -26,7 +26,7 @@ func main() {
 
 	PrintMemStats()
 
-	NewServer(database).Run(8080)
+	NewServer(database).Run(80)
 }
 
 func PrintMemStats() {
